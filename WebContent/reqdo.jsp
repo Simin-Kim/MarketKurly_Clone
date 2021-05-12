@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="./assets/css/font.css">
     <link rel="stylesheet" href="./assets/css/header.css">
     <link rel="stylesheet" href="./assets/css/footer.css">
-    <link rel="stylesheet" href="./assets/css/reqdone.css">
+    <link rel="stylesheet" href="./assets/css/sendpj.css">
 </head>
 
 <body>
@@ -36,9 +36,16 @@
         </div>
         <div class="mainWrap">
             <div class="main">
-                <h1 class="reqtitle">프로젝트 의뢰가 완료되었습니다.</h1>
-                <img class="reqimg" src="./assets/img/reqdone.svg">
-                <a href="./index.jsp">홈으로</a>
+                <h1 class="reqtitle">기부 프로젝트 의뢰</h1>
+                <form action="./reqdone.jsp">
+                    <div class="title"><span>제목</span><input type="text"></div>
+                    <div class="content"><span>내용</span><textarea name="" id="" cols="60" rows="15"></textarea></div>
+                    <div class="attach"><span>첨부파일</span><input type="file"></div>
+                    <div class="btn">
+                        <button class="send" type="submit">의뢰</button>
+                        <a href="./index.jsp"><button class="cancel" type="button">취소</button></a>
+                    </div>
+                </form>
             </div>
         </div>
         <div class="footerwrap">
