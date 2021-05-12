@@ -102,5 +102,25 @@
         </div>
     </div>
 </body>
+<script>
 
+function reg() {
+    let pw = document.querySelector(".pw");
+    const pw_vali = /^(?=.*[a-zA-Z])(?=.*\d).{8,15}$/; // 영+숫 8자 이상
+
+    if (pw_vali.test(pw.value)) {
+        let pwCheck = document.querySelector(".pwcheck");
+        if (pw.value == pwCheck.value) {
+            const signUpForm = document.querySelector("#signUpForm");
+            signUpForm.submit();
+        }
+        else {
+            alert("비밀번호가 일치하지 않습니다.");
+        }
+    }
+    else {
+        alert("비밀번호를 조건에 맞게 다시 입력해주세요.");
+    }
+}
+</script>
 </html>

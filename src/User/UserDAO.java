@@ -234,7 +234,6 @@ public class UserDAO {
         			pstmt.setString(3, user.getEmail());
         			pstmt.setString(4, user.getEmailHash());
         			pstmt.setString(5, user.getName());
-        			pstmt.setInt(6, user.getPoint());
         			return pstmt.executeUpdate();
             	}
             }
