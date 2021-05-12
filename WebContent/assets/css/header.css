@@ -57,7 +57,7 @@ div#wrap div.headerWrap div.header ul.sectL li.donate a {}
 div#wrap div.headerWrap div.header ul.sectL li.donate a span {}
 
 div#wrap div.headerWrap div.header div.sectR {
-    width: 700px;
+    width: 900px;
     height: 100%;
     display: flex;
     align-items: center;
@@ -73,8 +73,8 @@ div#wrap div.headerWrap div.header div.sectR div.search {
 div#wrap div.headerWrap div.header div.sectR ul.user {
     display: flex;
     align-items: center;
-    width: 380px;
-    justify-content: space-between;
+    width: 550px;
+    justify-content: space-around;
 }
 
 div#wrap div.headerWrap div.header div.sectR ul.user li a span {
