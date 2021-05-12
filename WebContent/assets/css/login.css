@@ -1,0 +1,100 @@
+div#wrap div.mainWrap {
+    width: 100%;
+    height: calc(100% - 310px);
+}
+
+div#wrap div.mainWrap div.main {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 50px auto;
+}
+
+div#wrap div.mainWrap div.main h3.title {
+    font-size: 35px;
+    font-family: 'NotoKrB';
+    text-align: center;
+}
+
+div#wrap div.mainWrap div.main div.loginBox {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+div#wrap div.mainWrap div.main div.loginBox input {
+    width: 100%;
+    height: 50px;
+    border-radius: 5px;
+    padding: 0 15px;
+    font-size: 16px;
+    font-family: 'NotoKrM';
+}
+
+div#wrap div.mainWrap div.main div.loginBox input.id {}
+
+div#wrap div.mainWrap div.main div.loginBox input.pw {
+    margin-top: 20px;
+}
+
+input::placeholder {
+    color: #ccc;
+}
+
+div#wrap div.mainWrap div.main div.finder {
+    margin: 5px 0 20px 0;
+}
+
+div#wrap div.mainWrap div.main div.finder a {}
+
+div#wrap div.mainWrap div.main div.finder a span.idFind {
+    font-size: 13px;
+    font-family: 'NotoKrM';
+}
+
+div#wrap div.mainWrap div.main div.finder span.bar {
+    width: 1px;
+    height: 10px;
+    margin: 0 2px;
+    background-color: #333;
+    display: inline-block;
+}
+
+div#wrap div.mainWrap div.main div.finder a span.pwFind {
+    font-size: 13px;
+    font-family: 'NotoKrM';
+}
+
+/*============================
+#formSubmit
+============================*/
+
+div#wrap div.mainWrap div.main div#formSubmit.loginBtnWrap {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+div#wrap div.mainWrap div.main div#formSubmit.loginBtnWrap button.loginBtn {
+    width: 100%;
+    height: 60px;
+    background-color: #000;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    font-family: 'NotoKrM';
+}
+
+div#wrap div.mainWrap div.main div.linksignup span {
+    font-family: 'NotoKrB';
+}
+
+div#wrap div.mainWrap div.main div.linksignup a.signBtn {
+    margin-left: 10px;
+}
+
+div#wrap div.mainWrap div.main div.linksignup a.signBtn span {
+    border-bottom: 1px solid #727273;
+    color: #727273;
+    font-family: 'NotoKrB';
+}

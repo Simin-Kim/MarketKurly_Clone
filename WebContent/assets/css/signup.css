@@ -1,0 +1,198 @@
+/*============================
+#Main
+============================*/
+
+div.mainWrap {
+    width: 100%;
+    margin-top: 50px;
+}
+
+div.mainWrap div.main {
+    width: 30%;
+    margin: 0 auto;
+    height: 731px;
+}
+
+div.mainWrap div.main h3.signTitle {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 35px;
+    font-family: 'NotoKrB';
+}
+
+div.mainWrap div.main table.signBox {
+    display: flex;
+    margin-left: 60px;
+}
+
+div.mainWrap div.main table.signBox tbody {
+    border-radius: 15px;
+}
+
+div.mainWrap div.main table.signBox tbody tr {
+    vertical-align: unset;
+}
+
+div.mainWrap div.main table.signBox tbody tr th {
+    padding: 30px 15px 30px 0;
+    font-size: 15px;
+    font-family: 'NotoKRM';
+    text-align: center;
+}
+
+div.mainWrap div.main table.signBox tbody tr td {}
+
+div.mainWrap div.main table.signBox tbody tr:first-of-type td {
+    padding-top: 30px;
+}
+
+div.mainWrap div.main table.signBox tbody tr td input {
+    border-radius: 3px;
+    height: 50px;
+    width: 350px;
+    padding: 0 16px;
+    font-size: 14px;
+    font-family: 'NotoKrM';
+}
+
+input::placeholder {
+    color: #ccc;
+}
+
+div.mainWrap div.main table.signBox tbody tr td input.pw {}
+
+div.mainWrap div.main table.signBox tbody tr td input.pwcheck {}
+
+button.verityBtn {
+    width: 101px;
+    height: 48px;
+    border: 2px solid #f98712;
+    border-radius: 4px;
+    margin-left: 4px;
+    font-size: 14px;
+    font-family: 'NotoKrM';
+    color: #f98712;
+}
+
+button.verityBtn span.verifyTxt {
+    font-size: 15px;
+    font-family: 'NotoKrM';
+    color: #f98712;
+}
+
+div.mainWrap div.main form table.signBox tbody tr td span.idPass {}
+
+div.mainWrap div.main form table.signBox tbody tr td span.idFail {}
+
+/*============================
+#formSubmit
+============================*/
+
+div.mainWrap div.main div#formSubmit.regBtnWrap {
+    text-align: center;
+    margin-top: 40px;
+}
+
+div.mainWrap div.main div#formSubmit.regBtnWrap button.regBtn {
+    width: 200px;
+    height: 60px;
+    font-size: 20px;
+    font-family: 'NotoKrM';
+    color: #000;
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: 3px solid #000;
+}
+
+@media (max-width:420px) {
+    /*============================
+#wrap
+============================*/
+    div#wrap {
+        width: 100%;
+    }
+    /*============================
+#Main
+============================*/
+    div.mainWrap {
+        width: 100%;
+    }
+    div.mainWrap div.main {
+        margin: 0;
+    }
+    div.mainWrap div.main h3.signTitle {
+        text-align: center;
+        font-size: 25px;
+        font-family: 'NotoKrM';
+        margin: 40px 0 20px 0;
+    }
+    div.mainWrap div.main table.signBox {
+        display: flex;
+        justify-content: center;
+        width: 350px;
+        margin: 0 auto;
+    }
+    div.mainWrap div.main table.signBox tbody {
+        border-top: 2px solid #f98712;
+        border-bottom: none;
+        border-radius: 0px;
+    }
+    div.mainWrap div.main table.signBox tbody tr {
+        vertical-align: unset;
+    }
+    div.mainWrap div.main table.signBox tbody tr th {
+        padding: 40px 5px 40px 0;
+        font-size: 13px;
+        font-family: 'NotoKRM';
+    }
+    div.mainWrap div.main table.signBox tbody tr td {}
+    div.mainWrap div.main table.signBox tbody tr:first-of-type td {
+        padding-top: 30px;
+    }
+    div.mainWrap div.main table.signBox tbody tr td input {
+        border-radius: 3px;
+        height: 50px;
+        width: 270px;
+        padding: 0 16px;
+        font-size: 14px;
+        font-family: 'NotoKrM';
+    }
+    input::placeholder {
+        color: #ccc;
+    }
+    div.mainWrap div.main table.signBox tbody tr td input.pw {}
+    div.mainWrap div.main table.signBox tbody tr td input.pwcheck {}
+    button.verityBtn {
+        width: 101px;
+        height: 48px;
+        border: 2px solid #f98712;
+        border-radius: 4px;
+        margin-left: 4px;
+        font-size: 14px;
+        font-family: 'NotoKrM';
+        color: #f98712;
+    }
+    button.verityBtn span.verifyTxt {
+        font-size: 15px;
+        font-family: 'NotoKrM';
+        color: #f98712;
+    }
+    div.mainWrap div.main form table.signBox tbody tr td span.idPass {}
+    div.mainWrap div.main form table.signBox tbody tr td span.idFail {}
+    /*============================
+#formSubmit
+============================*/
+    div.mainWrap div.main div#formSubmit.regBtnWrap {
+        text-align: center;
+        margin-top: 40px;
+    }
+    div.mainWrap div.main div#formSubmit.regBtnWrap button.regBtn {
+        width: 200px;
+        height: 60px;
+        font-size: 20px;
+        font-family: 'NotoKrM';
+        color: #fff;
+        background-color: #f98712;
+        border-radius: 10px;
+    }
+}
