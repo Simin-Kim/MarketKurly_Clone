@@ -35,6 +35,7 @@
         </div>
         <div class="mainWrap">
             <div class="main">
+            <form action="./loginAction.jsp" method="POST" id="loginForm">
                 <h3 class="title">로그인</h3>
                 <div class="loginBox">
                     <input class="id" type="text" name="id" value maxlength="16" required="" placeholder="아이디를 입력해주세요"
@@ -51,6 +52,7 @@
                 <div id="formSubmit" class="loginBtnWrap">
                     <button type="submit" class="loginBtn">로그인</button>
                 </div>
+                </form>
                 <div class="linksignup">
                     <span>아직 계정이 없다면?<a href="signup.jsp" class="signBtn"><span>회원가입</span></a></span>
                 </div>
