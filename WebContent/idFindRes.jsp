@@ -15,7 +15,6 @@
 <link rel="stylesheet" href="./assets/css/font.css">
 <link rel="stylesheet" href="./assets/css/header.css">
 <link rel="stylesheet" href="./assets/css/footer.css">
-<link rel="stylesheet" href="./assets/css/index.css">
 <link rel="stylesheet" href="./assets/css/findRes.css">
 
 </head>
@@ -71,17 +70,16 @@
 				<%
 					} else {
 				%>
-				<a href="./idFind.jsp">
+				<a href="./idfind.jsp">
 					<div id="formSubmit" class="findBtnWrap">
 						<button type="button" class="findBtn">아이디 다시 찾기</button>
 					</div>
 				</a>
 				<%
-					}
+					} session.invalidate(); 
 				%>
 			</div>
 		</div>
-	</div>
 	 <div class="footerwrap">
             <div class="footer">
                 <div class="footerlogo"><img src="./assets/img/footerlogo.svg" alt=""></div>
@@ -96,5 +94,6 @@
             </div>
             <p class="cpright">Copyright 2021 FUN&DO And Wadiz Co., Ltd all rights reserved.</p>
         </div>
+	</div>
 </body>
 </html>

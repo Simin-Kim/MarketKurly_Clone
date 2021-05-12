@@ -81,13 +81,13 @@
 				%>
 				<img src="./assets/img/findFImg.svg" class="warnImg"> 
 				<span class="warnTxt">존재하지 않는 정보입니다.<br>다시 시도해주세요.</span> 
-				<a href="./pwFind.jsp">
+				<a href="./pwfind.jsp">
 					<div id="formSubmit" class="findBtnWrap">
 						<button type="button" class="findBtn">비밀번호 다시 찾기</button>
 					</div>
 				</a>
 				<%
-					}
+					} session.invalidate(); 
 				%>
 			</div>
 		</div>
