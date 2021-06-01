@@ -1,0 +1,42 @@
+div#wrap div.mainWrap {
+    width: 100%;
+    height: calc(100% - 260px);
+}
+
+div#wrap div.mainWrap div.main {
+    width: 40%;
+    margin: 0px auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+div#wrap div.mainWrap div.main a {
+    width: 40%;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 121px 0;
+}
+
+div#wrap div.mainWrap div.main a span.text {
+    font-size: 28px;
+    font-family: 'NotoKrB';
+}
+
+div#wrap div.mainWrap div.main a {
+    border: 5px solid #004cf7;
+    border-radius: 10px;
+}
+
+div#wrap div.mainWrap div.main a:hover {
+    background-color: #004cf7;
+}
+
+div#wrap div.mainWrap div.main a span.text {
+    color: #004cf7;
+}
+
+div#wrap div.mainWrap div.main a:hover span {
+    color: #fff;
+}
