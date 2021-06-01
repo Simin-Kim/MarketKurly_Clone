@@ -1,0 +1,88 @@
+div#wrap div.mainWrap {
+    width: 100%;
+    height: calc(100% - 260px);
+}
+
+div#wrap div.mainWrap div.main {
+    width: 30%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+div#wrap div.mainWrap div.main h1.reqtitle {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 35px;
+    font-family: 'NotoKrB';
+}
+
+div#wrap div.mainWrap div.main div span {
+    font-size: 20px;
+    font-family: 'NotoKrM';
+}
+
+div#wrap div.mainWrap div.main div.title {
+    display: flex;
+    justify-content: space-evenly;
+    height: 40px;
+}
+
+div#wrap div.mainWrap div.main div.title input {
+    width: calc(100% - 80px);
+    border-radius: 5px;
+}
+
+div#wrap div.mainWrap div.main div.content {
+    margin: 30px 0;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+div#wrap div.mainWrap div.main div.content textarea {
+    resize: none;
+    width: calc(100% - 80px);
+    border-radius: 5px;
+}
+
+div#wrap div.mainWrap div.main div.attach {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+div#wrap div.mainWrap div.main div.attach input {
+    width: calc(100% - 110px);
+    align-items: center;
+    justify-content: flex-end;
+    align-content: center;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+div#wrap div.mainWrap div.main div.btn {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+}
+
+div#wrap div.mainWrap div.main div.btn button {
+    font-size: 25px;
+    font-family: 'NotoKrM';
+    margin: 0 20px;
+}
+
+div#wrap div.mainWrap div.main div.btn button.send {
+    border: 3px solid #000;
+    border-radius: 3px;
+    width: 150px;
+    height: 50px;
+}
+
+div#wrap div.mainWrap div.main div.btn button.cancel {
+    border: 3px solid #000;
+    border-radius: 3px;
+    width: 150px;
+    height: 50px;
+}

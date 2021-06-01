@@ -1,0 +1,38 @@
+div#wrap div.mainWrap {
+    width: 100%;
+    height: calc(100% - 260px);
+}
+
+div#wrap div.mainWrap div.main {
+    width: 30%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+div#wrap div.mainWrap div.main h1.reqtitle {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 35px;
+    font-family: 'NotoKrB';
+}
+
+div.mainWrap div.main img.reqimg {
+    width: 140px;
+}
+
+div#wrap div.mainWrap div.main a {
+    margin-top: 50px;
+    width: 250px;
+    height: 60px;
+    border: 3px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 19px;
+    font-family: 'NotoKrM';
+    border-radius: 3px;
+}

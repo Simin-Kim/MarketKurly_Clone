@@ -1,0 +1,101 @@
+div#wrap {
+    width: 100%;
+}
+
+div#wrap div.headerWrap {
+    width: 100%;
+    height: 60px;
+}
+
+div#wrap div.headerWrap div.header {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+div#wrap div.headerWrap div.header ul.sectL {
+    width: 400px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+div#wrap div.headerWrap div.header ul.sectL li.logo {
+    width: 120px;
+    height: 24px;
+}
+
+div#wrap div.headerWrap div.header ul.sectL li.logo a.logoImg {
+    background: url(../img/logo.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+div#wrap div.headerWrap div.header ul.sectL li a span {
+    font-size: 22px;
+    font-family: 'NotoKrB';
+}
+
+div#wrap div.headerWrap div.header ul.sectL li.funding {}
+
+div#wrap div.headerWrap div.header ul.sectL li.funding a {}
+
+div#wrap div.headerWrap div.header ul.sectL li.funding a span {}
+
+div#wrap div.headerWrap div.header ul.sectL li.donate {}
+
+div#wrap div.headerWrap div.header ul.sectL li.donate a {}
+
+div#wrap div.headerWrap div.header ul.sectL li.donate a span {}
+
+div#wrap div.headerWrap div.header div.sectR {
+    width: 700px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+div#wrap div.headerWrap div.header div.sectR div.search {
+    display: block;
+    width: 280px;
+    height: 30px;
+}
+
+div#wrap div.headerWrap div.header div.sectR ul.user {
+    display: flex;
+    align-items: center;
+    width: 380px;
+    justify-content: space-between;
+}
+
+div#wrap div.headerWrap div.header div.sectR ul.user li a span {
+    font-size: 22px;
+    font-family: 'NotoKrB';
+}
+
+div#wrap div.headerWrap div.header div.sectR ul.user li.login {}
+
+div#wrap div.headerWrap div.header div.sectR ul.user li.login a {}
+
+div#wrap div.headerWrap div.header div.sectR ul.user li.login a span {}
+
+div#wrap div.headerWrap div.header div.sectR ul.user li.signup {}
+
+div#wrap div.headerWrap div.header div.sectR ul.user li.signup a {}
+
+div#wrap div.headerWrap div.header div.sectR ul.user li.signup a span {}
+
+div#wrap div.headerWrap div.header div.sectR ul.user li.register {}
+
+div#wrap div.headerWrap div.header div.sectR ul.user li.register a {}
+
+div#wrap div.headerWrap div.header div.sectR ul.user li.register a span {}
