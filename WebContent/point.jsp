@@ -1,5 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"pageEncoding="UTF-8"%>
+<%@ page import="java.io.PrintWriter" %>
+<%@ page import="User.UserDTO" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.net.URLEncoder" %>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -54,9 +57,16 @@
 </head>
 
 <body>
+	<%	
+	String userID=null;
+	if(session.getAttribute("userID")!=null){
+		userID=(String) session.getAttribute("userID");
+	} 
+	
+	%>
     <div class="main">
         <h1 class="title">포인트 충전</h1>
-        <span class="now">현재 포인트 : 50000</span>
+        <span class="now">현재 포인트 : <<% %>></span>
         <span class="charge">충전 포인트 : <input type="number"></span>
         <button class="reg" type="submit">충전</button>
     </div>
