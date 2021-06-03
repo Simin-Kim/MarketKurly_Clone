@@ -64,9 +64,9 @@
                 <div class="footerinfo">
                     <span class="company">
                         FUN&DO | 대표 : 강현욱, 김시민, 이동혁<br>
-                        주소 : 충청북도 청주시 서원구 충대로 1<br>
-                        사업자 등록번호 : 456-78-1234<br>
-                    </span>
+                      	  주소 : 충청북도 청주시 서원구 충대로 1<br>
+                   	   	 사업자 등록번호 : 456-78-1234<br>
+       	             </span>
                     <span class="call">고객센터 : 2021-8282 오전 9시 ~ 오후 5시</span>
                 </div>
             </div>
