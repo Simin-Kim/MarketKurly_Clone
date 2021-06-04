@@ -32,6 +32,7 @@
 <!-- css -->
 <link rel="stylesheet" href="./assets/css/common.css">
 <link rel="stylesheet" href="./assets/css/font.css">
+<link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
 <!-- innerStyle -->
 <style>
 div.main {
@@ -121,40 +122,39 @@ div.main button.reg {
 			}
 	%>
 	<div class="main">
-	<form action="./charge.jsp" method="post">
-		<h1 class="title">포인트 충전</h1>
-		<div class="nowWrap">
-		<span class="nowText">현재 포인트 :</span><span class="nowPoint"><%=df.format(point)%></span>
-		</div>
-		<%
-			} catch (Exception e) {
-				e.printStackTrace();
-			} finally {
-				try {
-					if (conn != null)
-						conn.close();
+		<form action="./charge.jsp" method="post">
+			<h1 class="title">포인트 충전</h1>
+			<div class="nowWrap">
+			<span class="nowText">현재 포인트 :</span><span class="nowPoint"><%=df.format(point)%></span>
+			</div>
+			<%
 				} catch (Exception e) {
 					e.printStackTrace();
+				} finally {
+					try {
+						if (conn != null)
+							conn.close();
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+					try {
+						if (pstmt != null)
+							pstmt.close();
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+					try {
+						if (rs != null)
+							rs.close();
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 				}
-				try {
-					if (pstmt != null)
-						pstmt.close();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-				try {
-					if (rs != null)
-						rs.close();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		%>
-		<div class="chrgWrap">
-		<span class="charge">충전 포인트 : <input type="number" name="chrgPoint"></span></div>
-		<button class="reg" type="submit">충전</button>
-		</form>
-		
+			%>
+			<div class="chrgWrap">
+			<span class="charge">충전 포인트 : <input type="number" name="chrgPoint" required></span></div>
+			<button id="chargeBtn" class="reg" type="submit">충전</button>
+		</form>		
 	</div>
 
 </body>

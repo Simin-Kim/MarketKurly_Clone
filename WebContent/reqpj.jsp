@@ -39,30 +39,20 @@
 					<li class="donate"><a href="./donate.jsp"><span>기부하기</span></a></li>
 				</ul>
 				<div class="sectR">
-					<div class="search"></div>
-					<ul class="user">
-						<%
-							if ((String) session.getAttribute("id") != null) {
-						%>
-						<li class="login"><a href="./history.jsp"><span>펀딩/기부내역</span></a></li>
-						<li class="signup"><a class="logoImg" href="./point.jsp"
-							onclick="window.open(this.href, 'point', 'width=500,height=300,toolbars=no,scrollbars=no'); return false;"><span>포인트
-									충전</span></a></li>
+					<div class="searchWrap">
+	                	<form class="searchForm" action="./search.jsp" method="POST">
+	                		<i class="searchIcon"></i>
+	                		<input class="searchKey" type="text" placeholder="검색어를 입력하세요." name="search">
+                			<button class="searchBtn" type="submit">검색</button>
+	                	</form>
+                	</div>
+                    <ul class="user">
+                        <li class="login"><a href="./history.jsp"><span>펀딩/기부내역</span></a></li>
+						<li class="signup"><a class="logoImg" onclick="pointPop();"><span>포인트 충전</span></a></li>
 						<li class="register"><a href="./reqpj.jsp"><span>프로젝트
 									의뢰</span></a></li>
 						<li><a href="./logout.jsp"><span>로그아웃</span></a></li>
-						<%
-							} else {
-						%>
-						<li class="login"><a href="./login.jsp"><span>로그인</span></a></li>
-						<li class="signup"><a href="./signup.jsp"><span>회원가입
-							</span></a></li>
-						<li class="register"><a href="./reqpj.jsp"><span>프로젝트
-									의뢰</span></a></li>
-						<%
-							}
-						%>
-					</ul>
+                    </ul>
 				</div>
 			</div>
 		</div>
@@ -88,6 +78,16 @@
         </div>
     </div>
 
+	
+	<script>
+		function pointPop(){
+			popupX=(document.body.offsetWidth/2)-250;
+			popupY=(document.body.offsetHeight/2)-150;
+			
+			window.open("./point.jsp", 'point', 'width=500, height=300, left='+popupX+',top='+popupY+',scrollbars=no, resizable=no'); 
+			return false;
+		}
+	</script>
 </body>
 
 </html>
