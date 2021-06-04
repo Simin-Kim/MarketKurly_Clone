@@ -81,13 +81,21 @@
 				%>
 				<img src="./assets/img/findFImg.svg" class="warnImg"> 
 				<span class="warnTxt">존재하지 않는 정보입니다.<br>다시 시도해주세요.</span> 
+<<<<<<< Updated upstream
 				<a href="./pwfind.jsp">
+=======
+				<a href="./pwFind.jsp">
+>>>>>>> Stashed changes
 					<div id="formSubmit" class="findBtnWrap">
 						<button type="button" class="findBtn">비밀번호 다시 찾기</button>
 					</div>
 				</a>
 				<%
+<<<<<<< Updated upstream
 					} session.invalidate(); 
+=======
+					}
+>>>>>>> Stashed changes
 				%>
 			</div>
 		</div>
