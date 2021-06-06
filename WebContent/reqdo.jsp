@@ -25,11 +25,19 @@
                     <li class="donate"><a href="./donate.jsp"><span>기부하기</span></a></li>
                 </ul>
                 <div class="sectR">
-                    <div class="search"></div>
+					<div class="searchWrap">
+	                	<form class="searchForm" action="./search.jsp" method="POST">
+	                		<i class="searchIcon"></i>
+	                		<input class="searchKey" type="text" placeholder="검색어를 입력하세요." name="search">
+                			<button class="searchBtn" type="submit">검색</button>
+	                	</form>
+                	</div>
                     <ul class="user">
-                        <li class="login"><a href="./login.jsp"><span>로그인</span></a></li>
-                        <li class="signup"><a href="./signup.jsp"><span>회원가입</span></a></li>
-                        <li class="register"><a href="./reqpj.jsp"><span>프로젝트 의뢰</span></a></li>
+                        <li class="login"><a href="./history.jsp"><span>펀딩/기부내역</span></a></li>
+						<li class="signup"><a class="logoImg" onclick="pointPop();"><span>포인트 충전</span></a></li>
+						<li class="register"><a href="./reqpj.jsp"><span>프로젝트
+									의뢰</span></a></li>
+						<li><a href="./logout.jsp"><span>로그아웃</span></a></li>
                     </ul>
                 </div>
             </div>
@@ -38,8 +46,8 @@
             <div class="main">
                 <h1 class="reqtitle">기부 프로젝트 의뢰</h1>
                 <form action="./reqdone.jsp">
-                    <div class="title"><span>제목</span><input type="text"></div>
-                    <div class="content"><span>내용</span><textarea name="" id="" cols="60" rows="15"></textarea></div>
+                    <div class="title"><span>제목</span><input type="text" required></div>
+                    <div class="content"><span>내용</span><textarea name="" id="" cols="60" rows="15" required></textarea></div>
                     <div class="attach"><span>첨부파일</span><input type="file"></div>
                     <div class="btn">
                         <button class="send" type="submit">의뢰</button>
@@ -64,6 +72,16 @@
         </div>
     </div>
 
+	
+	<script>
+		function pointPop(){
+			popupX=(document.body.offsetWidth/2)-250;
+			popupY=(document.body.offsetHeight/2)-150;
+			
+			window.open("./point.jsp", 'point', 'width=500, height=300, left='+popupX+',top='+popupY+',scrollbars=no, resizable=no'); 
+			return false;
+		}
+	</script>
 </body>
 
 </html>
