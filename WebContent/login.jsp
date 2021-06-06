@@ -24,8 +24,14 @@
                     <li class="donate"><a href="./donate.jsp"><span>기부하기</span></a></li>
                 </ul>
                 <div class="sectR">
-                    <div class="search"></div>
-                    <ul class="user">
+                    <div class="searchWrap">
+	                	<form class="searchForm" action="./search.jsp" method="POST">
+	                		<i class="searchIcon"></i>
+	                		<input class="searchKey" type="text" placeholder="검색어를 입력하세요." name="search">
+                			<button class="searchBtn" type="submit">검색</button>
+	                	</form>
+                	</div>
+                    <ul class="visitant">
                         <li class="login"><a href="./login.jsp"><span>로그인</span></a></li>
                         <li class="signup"><a href="./signup.jsp"><span>회원가입</span></a></li>
                         <li class="register"><a href="./reqpj.jsp"><span>프로젝트 의뢰</span></a></li>
@@ -64,9 +70,9 @@
                 <div class="footerinfo">
                     <span class="company">
                         FUN&DO | 대표 : 강현욱, 김시민, 이동혁<br>
-                      	  주소 : 충청북도 청주시 서원구 충대로 1<br>
-                   	   	 사업자 등록번호 : 456-78-1234<br>
-       	             </span>
+                        주소 : 충청북도 청주시 서원구 충대로 1<br>
+                        사업자 등록번호 : 456-78-1234<br>
+                    </span>
                     <span class="call">고객센터 : 2021-8282 오전 9시 ~ 오후 5시</span>
                 </div>
             </div>

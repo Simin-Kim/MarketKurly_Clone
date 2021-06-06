@@ -15,10 +15,6 @@
 <link rel="stylesheet" href="./assets/css/font.css">
 <link rel="stylesheet" href="./assets/css/header.css">
 <link rel="stylesheet" href="./assets/css/footer.css">
-<<<<<<< Updated upstream
-=======
-<link rel="stylesheet" href="./assets/css/index.css">
->>>>>>> Stashed changes
 <link rel="stylesheet" href="./assets/css/findRes.css">
 
 </head>
@@ -34,8 +30,14 @@
                     <li class="donate"><a href="./donate.jsp"><span>기부하기</span></a></li>
               	  </ul>
                	 <div class="sectR">
-                    <div class="search"></div>
-                    <ul class="user">
+                    <div class="searchWrap">
+	                	<form class="searchForm" action="./search.jsp" method="POST">
+	                		<i class="searchIcon"></i>
+	                		<input class="searchKey" type="text" placeholder="검색어를 입력하세요." name="search">
+                			<button class="searchBtn" type="submit">검색</button>
+	                	</form>
+                	</div>
+                    <ul class="visitant">
                         <li class="login"><a href="./login.jsp"><span>로그인</span></a></li>
                         <li class="signup"><a href="./signup.jsp"><span>회원가입</span></a></li>
                         <li class="register"><a href="./reqpj.jsp"><span>프로젝트 의뢰</span></a></li>
@@ -74,28 +76,16 @@
 				<%
 					} else {
 				%>
-<<<<<<< Updated upstream
 				<a href="./idfind.jsp">
-=======
-				<a href="./idFind.jsp">
->>>>>>> Stashed changes
 					<div id="formSubmit" class="findBtnWrap">
 						<button type="button" class="findBtn">아이디 다시 찾기</button>
 					</div>
 				</a>
 				<%
-<<<<<<< Updated upstream
 					} session.invalidate(); 
 				%>
 			</div>
 		</div>
-=======
-					}
-				%>
-			</div>
-		</div>
-	</div>
->>>>>>> Stashed changes
 	 <div class="footerwrap">
             <div class="footer">
                 <div class="footerlogo"><img src="./assets/img/footerlogo.svg" alt=""></div>
@@ -110,9 +100,6 @@
             </div>
             <p class="cpright">Copyright 2021 FUN&DO And Wadiz Co., Ltd all rights reserved.</p>
         </div>
-<<<<<<< Updated upstream
 	</div>
-=======
->>>>>>> Stashed changes
 </body>
 </html>
