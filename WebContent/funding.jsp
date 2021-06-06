@@ -33,32 +33,6 @@
 					<li class="donate"><a href="./donate.jsp"><span>기부하기</span></a></li>
 				</ul>
 				<div class="sectR">
-<<<<<<< Updated upstream
-					<div class="search"></div>
-					<ul class="user">
-						<%
-							if ((String) session.getAttribute("id") != null) {
-						%>
-						<li class="login"><a href="./history.jsp"><span>펀딩/기부내역</span></a></li>
-						<li class="signup"><a class="logoImg" href="./point.jsp"
-							onclick="window.open(this.href, 'point', 'width=500,height=300,toolbars=no,scrollbars=no'); return false;"><span>포인트
-									충전</span></a></li>
-						<li class="register"><a href="./reqpj.jsp"><span>프로젝트
-									의뢰</span></a></li>
-						<li><a href="./logout.jsp"><span>로그아웃</span></a></li>
-						<%
-							} else {
-						%>
-						<li class="login"><a href="./login.jsp"><span>로그인</span></a></li>
-						<li class="signup"><a href="./signup.jsp"><span>회원가입
-							</span></a></li>
-						<li class="register"><a href="./reqpj.jsp"><span>프로젝트
-									의뢰</span></a></li>
-						<%
-							}
-						%>
-					</ul>
-=======
 					<div class="searchWrap">
 	                	<form class="searchForm" action="./search.jsp" method="POST">
 	                		<i class="searchIcon"></i>
@@ -86,7 +60,6 @@
 						<%
 							}
 						%>
->>>>>>> Stashed changes
 				</div>
 			</div>
         <div class="mainWrap">
