@@ -8,6 +8,7 @@ public class UserDTO {
 	boolean EmailChecked;
 	String Name;
 	int point = 10000;
+	
 	public String getID() {
 		return ID;
 	}
