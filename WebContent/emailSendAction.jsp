@@ -18,25 +18,6 @@
 	if (session.getAttribute("id") != null) {
 		userID = (String) session.getAttribute("id");
 	}
-	/* if(userID == null){
-		PrintWriter script = response.getWriter();
-		script.println("<script>");
-		script.println("alert('로그인을 해주세요.');");
-		script.println("location.href='login.jsp'");
-		script.println("</script>");
-		script.close();
-		return;
-	}
-		boolean emailChecked = userDAO.getEmailChecked(userID);
-		if(emailChecked ==true) {
-			PrintWriter script = response.getWriter();
-			script.println("<script>");
-			script.println("alert('이미 인증된 아이디입니다.');");
-			script.println("location.href ='index.jsp'");
-			script.println("</script>");
-			script.close();
-			return;
-		}   */
 
 	String host = "http://localhost:8080/FunNDo/";
 	String from = "inuyasa74@gmail.com"; // 보내는이
@@ -104,31 +85,19 @@
 					<li class="logo"><a class="logoImg" href="./index.jsp"></a></li>
 					<li class="funding"><a href="./funding.jsp"><span>펀딩하기</span></a></li>
 					<li class="donate"><a href="./donate.jsp"><span>기부하기</span></a></li>
-
 				</ul>
 				<div class="sectR">
-					<div class="search"></div>
-					<ul class="user">
-						<%
-							if ((String) session.getAttribute("id") != null) {
-						%>
-						<li class="login"><a href="./history.jsp"><span>펀딩/기부내역</span></a></li>
-						<li class="signup"><a class="logoImg" href="./point.jsp"
-							onclick="window.open(this.href, 'point', 'width=500,height=300,toolbars=no,scrollbars=no'); return false;"><span>포인트
-									충전</span></a></li>
-						<li class="register"><a href="./reqpj.jsp"><span>프로젝트
-									의뢰</span></a></li>
-						<%
-							} else {
-						%>
+					<div class="searchWrap">
+	                	<form class="searchForm" action="./search.jsp" method="POST">
+	                		<i class="searchIcon"></i>
+	                		<input class="searchKey" type="text" placeholder="검색어를 입력하세요." name="search">
+                			<button class="searchBtn" type="submit">검색</button>
+	                	</form>
+                	</div>
+					<ul class="visitant">
 						<li class="login"><a href="./login.jsp"><span>로그인</span></a></li>
-						<li class="signup"><a href="./signup.jsp"><span>회원가입
-							</span></a></li>
-						<li class="register"><a href="./reqpj.jsp"><span>프로젝트
-									의뢰</span></a></li>
-						<%
-							}
-						%>
+						<li class="signup"><a href="./signup.jsp"><span>회원가입</span></a></li>
+						<li class="register"><a href="./reqpj.jsp"><span>프로젝트 의뢰</span></a></li>
 					</ul>
 				</div>
 			</div>

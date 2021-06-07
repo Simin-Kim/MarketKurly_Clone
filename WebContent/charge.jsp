@@ -67,11 +67,43 @@
 				e.printStackTrace();
 			}
 		}
-		
-		PrintWriter script = response.getWriter();
-		script.println("<script>");
-		script.println("alert('포인트가 충전되었습니다.')");
-		script.println("window.close()");
-		script.println("</script>");
-		script.close();
 %>
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- toastr css 라이브러리 -->
+	<link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
+</head>
+<body>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+	<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+	<script>
+		IMP.init('imp80665345');
+		IMP.request_pay({
+	    pg : 'html5_inicis', // version 1.1.0부터 지원.
+	    pay_method : 'vbank',
+	    merchant_uid : 'merchant_' + new Date().getTime(),
+	    name : '포인트 충전',
+	    amount : <%=getPoint%>-<%=getPoint%>*0.05
+		}, function(rsp) {
+		if ( rsp.success ) {
+			toastr.options.escapeHtml = false;
+			toastr.options.closeButton = false;
+			toastr.options.newestOnTop = false;
+			toastr.options.progressBar = false;
+			toastr.success('포인트가 충전되었습니다.', {timeOut: 700});
+			setTimeout(function(){window.close()},800);
+	    } else {
+			toastr.options.escapeHtml = false;
+			toastr.options.closeButton = false;
+			toastr.options.newestOnTop = false;
+			toastr.options.progressBar = false;
+			toastr.error('결제에 실패하였습니다.', {timeOut: 700});
+			setTimeout(function(){window.close()},800);
+	    	}
+		});
+	
+	</script>
+</body>
+</html>

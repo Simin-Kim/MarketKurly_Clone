@@ -2,10 +2,13 @@
 <%@ page import="java.sql.PreparedStatement"%>
 <%@ page import="java.sql.ResultSet"%>
 <%@ page import="util.DatabaseUtil"%>
+<%@page import="java.io.PrintWriter"%>
 <%@ page import="java.text.*"%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%request.setCharacterEncoding("utf-8"); %>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -17,9 +20,11 @@
     <link rel="stylesheet" href="./assets/css/font.css">
     <link rel="stylesheet" href="./assets/css/header.css">
     <link rel="stylesheet" href="./assets/css/footer.css">
-    <link rel="stylesheet" href="./assets/css/product.css">
+    <link rel="stylesheet" href="./assets/css/search.css">
 </head>
-
+<%
+String key = null;
+key=(String)request.getParameter("search"); %>
 <body>
     <div id="wrap">
         <div class="headerWrap">
@@ -37,34 +42,36 @@
                 			<button class="searchBtn" type="submit">검색</button>
 	                	</form>
                 	</div>
-					<%
-						if ((String) session.getAttribute("id") != null) {
-					%>
 					<ul class="user">
+						<%
+							if ((String) session.getAttribute("id") != null) {
+						%>
 						<li class="login"><a href="./history.jsp"><span>펀딩/기부내역</span></a></li>
 						<li class="signup"><a class="logoImg" onclick="pointPop();"><span>포인트 충전</span></a></li>
-						<li class="register"><a href="./reqpj.jsp"><span>프로젝트 의뢰</span></a></li>
+						<li class="register"><a href="./reqpj.jsp"><span>프로젝트
+									의뢰</span></a></li>
 						<li><a href="./logout.jsp"><span>로그아웃</span></a></li>
-					</ul>
 						<%
 							} else {
 						%>
-					<ul class="visitant">
 						<li class="login"><a href="./login.jsp"><span>로그인</span></a></li>
-						<li class="signup"><a href="./signup.jsp"><span>회원가입</span></a></li>
-						<li class="register"><a href="./reqpj.jsp"><span>프로젝트 의뢰</span></a></li>
-					</ul>
+						<li class="signup"><a href="./signup.jsp"><span>회원가입
+							</span></a></li>
+						<li class="register"><a href="./reqpj.jsp"><span>프로젝트
+									의뢰</span></a></li>
 						<%
 							}
 						%>
+					</ul>
 				</div>
 			</div>
 		</div>
         <div class="mainWrap">
             <div class="main">
-                <h1 class="title">기부상품</h1>
+                <h1 class="title">검색 결과</h1>
                 <div class="sortingWrap">
-                <form action="./donate.jsp" method="POST">
+                <form action="./search.jsp" method="POST">
+            		<input type="hidden" name="search" value="<%=key%>">
                 	<select class="select" name="select" onchange="sortingLoad(this.form);">
                 	<%
 					String select=null;
@@ -143,10 +150,10 @@
 					PreparedStatement pstmt2 = null;
 					String sql = null;
 					ResultSet rs = null;
+					ResultSet rs2 = null;
 					DecimalFormat df = new DecimalFormat("###,###");
 					conn = DatabaseUtil.getConnection();
 					
-					int i=0,j=0;
 					String content=null;		// 상품명
 					String thumImg=null;	// 썸네일 이미지 경로
 					String title=null;
@@ -159,10 +166,13 @@
 					int like=0;
 					int contID=0;
 					String likeTitle=null;
+					String type=null;
 					int restDate=0;
 					int investor=0;
 					
 					try {
+						String search="%"+key+"%";
+						
 						if(select!=null){
 							String sortLike="like";
 							String sortClosing="closing";
@@ -170,63 +180,68 @@
 							String sortRecent="recent";
 							
 							if(select.equals(sortLike)){
-								sql="SELECT * FROM FUNDCONTENT WHERE TYPE=? ORDER BY likeCount DESC";
-								pstmt = conn.prepareStatement(sql);
-								pstmt.setString(1, "기부");
+								sql="SELECT * FROM FUNDCONTENT WHERE fundcontent LIKE ? ORDER BY likeCount DESC";
+								pstmt = conn.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+								pstmt.setString(1, search);
 								rs=pstmt.executeQuery();
 							}
 							else if(select.equals(sortClosing)){
-								sql="SELECT * FROM FUNDCONTENT WHERE TYPE=? ORDER BY endDate ASC";
-								pstmt = conn.prepareStatement(sql);
-								pstmt.setString(1, "기부");
+								sql="SELECT * FROM FUNDCONTENT WHERE fundcontent LIKE ? ORDER BY endDate ASC";
+								pstmt = conn.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+								pstmt.setString(1, search);
 								rs=pstmt.executeQuery();
 							}
 							else if(select.equals(sortInvestor)){
-								sql="SELECT * FROM FUNDCONTENT WHERE TYPE=? ORDER BY investor DESC";
-								pstmt = conn.prepareStatement(sql);
-								pstmt.setString(1, "기부");
+								sql="SELECT * FROM FUNDCONTENT WHERE fundcontent LIKE ? ORDER BY investor DESC";
+								pstmt = conn.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+								pstmt.setString(1, search);
 								rs=pstmt.executeQuery();
 							}
 							else if(select.equals(sortRecent)){
-								sql="SELECT * FROM FUNDCONTENT WHERE TYPE=? ORDER BY recent DESC";
-								pstmt = conn.prepareStatement(sql);
-								pstmt.setString(1, "기부");
+								sql="SELECT * FROM FUNDCONTENT WHERE fundcontent LIKE ? ORDER BY recent DESC";
+								pstmt = conn.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+								pstmt.setString(1, search);
 								rs=pstmt.executeQuery();
 							}
 							else{
-								sql="SELECT * FROM FUNDCONTENT WHERE TYPE=? ORDER BY contentID ASC"; // user 테이블 연동용
-								pstmt = conn.prepareStatement(sql);
-								pstmt.setString(1, "기부");
-								rs = pstmt.executeQuery();
+								sql="SELECT * FROM FUNDCONTENT WHERE fundcontent LIKE ? ORDER BY contentID ASC";
+								pstmt = conn.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+								pstmt.setString(1, search);
+								rs=pstmt.executeQuery();
 							}
 						}
 						else{
-							sql="SELECT * FROM FUNDCONTENT WHERE TYPE=? ORDER BY contentID ASC"; // user 테이블 연동용
-							pstmt = conn.prepareStatement(sql);
-							pstmt.setString(1, "기부");
-							rs = pstmt.executeQuery();
+							sql="SELECT * FROM FUNDCONTENT WHERE fundcontent LIKE ? ORDER BY contentID ASC";
+							pstmt = conn.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+							pstmt.setString(1, search);
+							rs=pstmt.executeQuery();
 						}
-						for(i=1;i<=3;i++){
+						
+						rs.last();
+						int rowCount=rs.getRow();
+						rs.beforeFirst();
+						
+						for(int j=0;j<=rowCount/3;j++){
 				%>
                 <ul class="product">
                 <%
-                	for(j=1;j<=3;j++){
-                		rs.next();
-						
-						title=rs.getString("fundTitle");
-						contID=rs.getInt("contentID");
-						content = rs.getString("fundContent"); // user 테이블에서 유저아이디를 가진 포인트 가져옴
-						thumImg=rs.getString("thumImg");
-						goal=rs.getInt("goal");
-						recent=rs.getInt("recent");
-						goalInt=(int)goal;
-						recentInt=(int)recent;
-						prog = recent / goal*100;
-						progInt=(int)prog;
-						restDate=rs.getInt("restDate");
-						like=rs.getInt("likeCount");
-						investor=rs.getInt("investor");
-						prog=Math.round(prog); 
+						for(int i=0;i<=2;i++){
+							if(rs.next()){
+								title=rs.getString("fundTitle");
+								contID=rs.getInt("contentID");
+								content = rs.getString("fundContent"); // user 테이블에서 유저아이디를 가진 포인트 가져옴
+								thumImg=rs.getString("thumImg");
+								type=rs.getString("type");
+								goal=rs.getInt("goal");
+								recent=rs.getInt("recent");
+								goalInt=(int)goal;
+								recentInt=(int)recent;
+								prog = recent / goal*100;
+								progInt=(int)prog;
+								restDate=rs.getInt("restDate");
+								like=rs.getInt("likeCount");
+								investor=rs.getInt("investor");
+								prog=Math.round(prog); 
                 %>
                     <li>
                         <img class="productImg" src="<%=thumImg %>">
@@ -238,14 +253,14 @@
 							</div>
                         </div>
                         <div class="progress"><progress value="<%=prog%>" max=100></progress></div>
-                        <div class="likeInvest">
+						<div class="likeInvest">
 							<span class="like"><%=like%></span>
 							<span class="investor"><%=investor%>명 참여</span>
 						</div>
 						<div class="btn">
 							<form class="orderForm" action="./order.jsp" method="POST">
 								<input type="hidden" name="orderTitle" value="<%=title%>">
-								<button type="submit" class="doBtn">기부하기</button>
+								<button type="submit" class="doBtn"><%if(type.equals("펀딩")){ %>펀딩하기<%}else{ %>기부하기<%}%></button>
 							</form>
 							<form class="likeForm" action="./like.jsp" method="POST">
 								<input type="hidden" name="likeTitle" value="<%=title%>">
@@ -253,9 +268,12 @@
 							</form>
 						</div>
                     </li>
-                    <% }%>
+                    <%}
+	                }
+                    %>
                 </ul>
-                <%} 
+                <%
+                }
 						} catch (Exception e) {
 							e.printStackTrace();
 						} finally {
@@ -278,7 +296,7 @@
 								e.printStackTrace();
 							}
 				}%>
-            </div>
+           </div>
         </div>
         <div class="footerwrap">
             <div class="footer">
@@ -295,8 +313,6 @@
             <p class="cpright">Copyright 2021 FUN&DO And Wadiz Co., Ltd all rights reserved.</p>
         </div>
     </div>
-
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="./assets/js/index.js"></script>
@@ -308,9 +324,9 @@
 			window.open("./point.jsp", 'point', 'width=500, height=300, left='+popupX+',top='+popupY+',scrollbars=no, resizable=no'); 
 			return false;
 		}
-		
+
         function sortingLoad(obj){
-         	obj.submit();
+        	obj.submit();
         }
 	</script>
 </body>

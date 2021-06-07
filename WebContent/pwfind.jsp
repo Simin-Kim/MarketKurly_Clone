@@ -26,8 +26,14 @@
                     <li class="donate"><a href="./donate.jsp"><span>기부하기</span></a></li>
                 </ul>
                 <div class="sectR">
-                    <div class="search"></div>
-                    <ul class="user">
+                    <div class="searchWrap">
+	                	<form class="searchForm" action="./search.jsp" method="POST">
+	                		<i class="searchIcon"></i>
+	                		<input class="searchKey" type="text" placeholder="검색어를 입력하세요." name="search">
+                			<button class="searchBtn" type="submit">검색</button>
+	                	</form>
+                	</div>
+                    <ul class="visitant">
                         <li class="login"><a href="./login.jsp"><span>로그인</span></a></li>
                         <li class="signup"><a href="./signup.jsp"><span>회원가입</span></a></li>
                         <li class="register"><a href="./reqpj.jsp"><span>프로젝트 의뢰</span></a></li>
