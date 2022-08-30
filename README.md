@@ -1,2 +1,2 @@
-# opensource-webProject-final
-충북대학교 오픈소스 최종 웹프로젝트
+# MarketKurly_Clone
+마켓컬리 클론 프로젝트
